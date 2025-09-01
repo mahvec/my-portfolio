@@ -89,7 +89,7 @@ export default function Projects() {
             className="flex md:grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-4 md:pb-0 scrollbar-thin scrollbar-thumb-[var(--color-highlight)]"
             style={{ scrollBehavior: "smooth" }}
           >
-            {projects.map((project, i) => (
+            {projects.map((project) => (
               <div
                 key={project.name}
                 className="snap-start md:snap-none flex-shrink-0 w-[90vw] xs:w-80 sm:w-96 md:w-auto"
