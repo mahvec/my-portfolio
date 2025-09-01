@@ -50,7 +50,7 @@ export default function ExperienceTimelineSection() {
           Experience
         </h2>
         <div className="relative border-l-2 border-accent/40 sm:ml-4">
-          {experiences.map((exp, i) => (
+          {experiences.map((exp) => (
             <motion.div
               key={exp.company}
               variants={{
