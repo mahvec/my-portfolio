@@ -60,7 +60,7 @@ export default function ExperienceTimelineSection() {
               className="mb-8 sm:mb-10 ml-6"
             >
               <div className="absolute -left-3 sm:-left-4 top-2 w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-accent border-2 border-primary"></div>
-              <div className="bg-primary border border-accent/20 rounded-xl p-3 sm:p-4 sm:p-5 shadow-lg">
+              <div className="bg-primary border border-accent/20 rounded-xl p-3 sm:p-4 shadow-lg">
                 <h3 className="text-lg sm:text-xl font-bold text-accent">
                   {exp.company}
                 </h3>
