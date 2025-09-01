@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+
+import ProjectCard from "../../../components/general/ProjectCard";
 
 const projects = [
   {
@@ -46,65 +47,48 @@ export default function FeaturedProjectsSection() {
           Projects
         </h2>
         <div className="h-1 w-12 bg-[var(--color-highlight)] rounded mb-12"></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="flex flex-col md:flex-row bg-[var(--color-accent)] border-2 border-transparent hover:border-[var(--color-highlight)] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.025] hover:shadow-2xl transition"
-            >
-              {/* Left: Info */}
-              <div className="flex-1 flex flex-col gap-3 p-6 justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-[var(--color-white)] mb-2">
-                    {project.name}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded bg-[var(--color-highlight)] text-[var(--color-bg)] text-xs font-semibold uppercase tracking-wide"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-[var(--color-light)] text-sm mb-4">
-                    {project.desc}
-                  </p>
-                </div>
-                <div className="flex gap-3 mt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded bg-[var(--color-highlight)] text-[var(--color-bg)] font-bold shadow hover:bg-[var(--color-white)] hover:text-[var(--color-bg)] transition"
-                  >
-                    View Github
-                  </a>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded border-2 border-[var(--color-highlight)] text-[var(--color-highlight)] font-bold hover:bg-[var(--color-highlight)] hover:text-[var(--color-bg)] transition"
-                  >
-                    View project
-                  </a>
-                </div>
+        {/* Responsive grid + carousel */}
+        <div className="relative">
+          {/* Carousel buttons for small screens */}
+          <button
+            type="button"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-bg)]/80 rounded-full p-2 shadow hidden xs:flex md:hidden"
+            aria-label="Scroll left"
+            onClick={() => {
+              document
+                .getElementById("featured-projects-carousel")
+                ?.scrollBy({ left: -320, behavior: "smooth" });
+            }}
+          >
+            <span className="material-icons">chevron_left</span>
+          </button>
+          <button
+            type="button"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-bg)]/80 rounded-full p-2 shadow hidden xs:flex md:hidden"
+            aria-label="Scroll right"
+            onClick={() => {
+              document
+                .getElementById("featured-projects-carousel")
+                ?.scrollBy({ left: 320, behavior: "smooth" });
+            }}
+          >
+            <span className="material-icons">chevron_right</span>
+          </button>
+          <div
+            id="featured-projects-carousel"
+            className="flex gap-6 md:gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-4 md:pb-0 scrollbar-thin scrollbar-thumb-[var(--color-highlight)]"
+            style={{ scrollBehavior: "smooth" }}
+          >
+            {projects.map((project) => (
+              <div
+                key={project.name}
+                className="snap-start md:snap-none flex-shrink-0 w-[90vw] xs:w-80 sm:w-96 md:w-auto"
+                style={{ maxWidth: 400 }}
+              >
+                <ProjectCard {...project} />
               </div>
-              {/* Right: Image */}
-              <div className="md:w-56 w-full h-40 md:h-auto flex-shrink-0">
-                <img
-                  src={project.img}
-                  alt={project.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
