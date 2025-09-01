@@ -49,7 +49,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "120", label: "Completed Projects" },
+  { value: "20", label: "Completed Projects" },
   { value: "95%", label: "Client satisfaction" },
   { value: "3+", label: "Years of experience" },
 ];
