@@ -50,7 +50,7 @@ export default function Contact() {
           {/* Contact Form and Info */}
           <motion.div
             variants={itemVariants}
-            className="grid lg:grid-cols-2 gap-8 sm:gap-12 gap-16 items-start"
+            className="grid lg:grid-cols-2 gap-8 sm:gap-12items-start"
           >
             {/* Contact Form */}
             <div className="bg-[var(--color-primary)] p-3 sm:p-6 lg:p-8 rounded-2xl">
